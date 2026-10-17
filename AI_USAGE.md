@@ -10,7 +10,7 @@ Add a new section every week, before you tag. Did not use AI? Write "None" under
 - One thing the AI got wrong and how I fixed it: Its first check only used the status page, and it missed that VendorCard.jsx did not exist at all. I asked it to read the actual lab sheet on iTa'LeEm, and then it found B2 and all of Part C were missing.
 
 ## Week 2
-- Tool(s):
-- What I asked for:
-- What I kept, changed or rejected, and why:
-- One thing the AI got wrong and how I fixed it:
+- Tool(s): Claude Code (Claude Opus 5.5)
+- What I asked for: To finish Part C of the lab. It made src/data/vendors.js with Kedai Ayam Gunting first, changed MenuItemCard to take props, added MenuList with .map(), made VendorCard clickable with useState in App, and passed onAdd down so Add to cart updates the badge. It ran the app and checked that the badge counts up, Sold out cannot be added, and switching vendor changes the menu.
+- What I kept, changed or rejected, and why: I kept the code because it follows the lab sheet step by step. I kept the extra CSS for .vendor-grid, .selected and .tag, because the starter CSS had no styles for them and the vendor buttons looked like plain browser buttons. I changed the Kedai Ayam Gunting menu, prices and hours to match the real stall, because the AI made them up as examples.
+- One thing the AI got wrong and how I fixed it: It guessed my restaurant's dishes, prices and opening hours, because it had no way to know them. I checked them and corrected them in vendors.js.
