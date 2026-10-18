@@ -11,6 +11,7 @@ function App() {
   const selectedVendor = vendors.find((v) => v.id === selectedVendorId)
   const [cart, setCart] = useState([]) // each line is a menu item plus qty
   const cartCount = cart.reduce((sum, line) => sum + line.qty, 0)
+  const [lastOrder, setLastOrder] = useState(null)
 
   function handleAddToCart(item) {
     setCart((prevCart) => {
@@ -32,6 +33,11 @@ function App() {
         .map((line) => (line.id === id ? { ...line, qty: line.qty - 1 } : line))
         .filter((line) => line.qty > 0),
     )
+  }
+
+  function handlePlaceOrder(details) {
+    setLastOrder({ ...details, items: cart })
+    setCart([])
   }
 
   return (
@@ -57,7 +63,17 @@ function App() {
         </section>
         <section>
           <h2 className="section-title">Your cart</h2>
-          <CartPage cart={cart} onIncrease={handleIncrease} onDecrease={handleDecrease} />
+          {lastOrder && (
+            <p className="notice">
+              Thanks, {lastOrder.name}! Your order is placed. Pick it up at {lastOrder.pickupTime}.
+            </p>
+          )}
+          <CartPage
+            cart={cart}
+            onIncrease={handleIncrease}
+            onDecrease={handleDecrease}
+            onPlaceOrder={handlePlaceOrder}
+          />
         </section>
       </main>
       <Footer />

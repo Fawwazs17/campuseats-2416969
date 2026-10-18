@@ -1,6 +1,7 @@
 import CartItem from '../components/CartItem.jsx'
+import CheckoutForm from '../components/CheckoutForm.jsx'
 
-function CartPage({ cart, onIncrease, onDecrease }) {
+function CartPage({ cart, onIncrease, onDecrease, onPlaceOrder }) {
   if (cart.length === 0) {
     return <p className="muted">Your cart is empty.</p>
   }
@@ -15,6 +16,7 @@ function CartPage({ cart, onIncrease, onDecrease }) {
         ))}
       </ul>
       <p className="cart-total">Total: RM {total.toFixed(2)}</p>
+      <CheckoutForm onPlaceOrder={onPlaceOrder} />
     </div>
   )
 }
