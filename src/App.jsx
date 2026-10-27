@@ -5,6 +5,7 @@ import VendorCard from './components/VendorCard.jsx'
 import MenuList from './components/MenuList.jsx'
 import Footer from './components/Footer.jsx'
 import CartPage from './pages/CartPage.jsx'
+import RecentlyViewed from './components/RecentlyViewed.jsx'
 
 function App() {
   const [selectedVendorId, setSelectedVendorId] = useState(vendors[0].id)
@@ -12,6 +13,12 @@ function App() {
   const [cart, setCart] = useState([]) // each line is a menu item plus qty
   const cartCount = cart.reduce((sum, line) => sum + line.qty, 0)
   const [lastOrder, setLastOrder] = useState(null)
+  const [recentlyViewed, setRecentlyViewed] = useState([])
+
+  function handleView(item) {
+    // newest first, no duplicates, max 5
+    setRecentlyViewed((prev) => [item, ...prev.filter((v) => v.id !== item.id)].slice(0, 5))
+  }
 
   function handleAddToCart(item) {
     setCart((prevCart) => {
@@ -59,8 +66,9 @@ function App() {
         </section>
         <section>
           <h2 className="section-title">Menu: {selectedVendor.name}</h2>
-          <MenuList items={selectedVendor.menu} onAdd={handleAddToCart} />
+          <MenuList items={selectedVendor.menu} onAdd={handleAddToCart} onView={handleView} />
         </section>
+        <RecentlyViewed items={recentlyViewed} onClear={() => setRecentlyViewed([])} />
         <section>
           <h2 className="section-title">Your cart</h2>
           {lastOrder && (
