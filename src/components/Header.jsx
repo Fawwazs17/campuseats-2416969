@@ -1,22 +1,22 @@
-function Header({ cartCount, view, onNavigate }) {
+import { Link, NavLink } from 'react-router-dom'
+import useCart from '../hooks/useCart.js'
+
+function Header() {
+  const { cartCount } = useCart()
+
   return (
     <header className="header">
-      <h1 className="logo">CampusEats</h1>
+      <Link to="/" className="logo">
+        CampusEats
+      </Link>
       <nav className="nav">
-        <button
-          type="button"
-          className={view === 'menu' ? 'nav-btn active' : 'nav-btn'}
-          onClick={() => onNavigate('menu')}
-        >
-          Menu
-        </button>
-        <button
-          type="button"
-          className={view === 'cart' ? 'nav-btn cart active' : 'nav-btn cart'}
-          onClick={() => onNavigate('cart')}
-        >
+        <NavLink to="/" end>
+          Vendors
+        </NavLink>
+        <NavLink to="/orders">My Orders</NavLink>
+        <NavLink to="/cart" className="cart">
           Cart <span className="badge">{cartCount}</span>
-        </button>
+        </NavLink>
       </nav>
     </header>
   )
