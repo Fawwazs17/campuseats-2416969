@@ -1,13 +1,22 @@
-function Header({ cartCount }) {
+function Header({ cartCount, view, onNavigate }) {
   return (
     <header className="header">
       <h1 className="logo">CampusEats</h1>
       <nav className="nav">
-        <a href="#">Vendors</a>
-        <a href="#">My Orders</a>
-        <a href="#" className="cart">
+        <button
+          type="button"
+          className={view === 'menu' ? 'nav-btn active' : 'nav-btn'}
+          onClick={() => onNavigate('menu')}
+        >
+          Menu
+        </button>
+        <button
+          type="button"
+          className={view === 'cart' ? 'nav-btn cart active' : 'nav-btn cart'}
+          onClick={() => onNavigate('cart')}
+        >
           Cart <span className="badge">{cartCount}</span>
-        </a>
+        </button>
       </nav>
     </header>
   )
