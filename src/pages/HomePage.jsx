@@ -3,10 +3,10 @@ import { Loading, ErrorMessage } from '../components/Status.jsx'
 import useVendors from '../hooks/useVendors.js'
 
 function HomePage() {
-  const { vendors, error, loading, retry } = useVendors()
+  const { vendors, loading, error, reload } = useVendors()
 
   if (loading) return <Loading text="Loading vendors…" />
-  if (error) return <ErrorMessage message={error} onRetry={retry} />
+  if (error) return <ErrorMessage message={error} onRetry={reload} />
 
   return (
     <section>

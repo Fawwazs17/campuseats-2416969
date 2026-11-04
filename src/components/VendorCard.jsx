@@ -1,8 +1,8 @@
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router'
 
 function VendorCard({ vendor }) {
   return (
-    <Link to={`/vendors/${vendor.id}`} className="card vendor-card">
+    <Link to={`/vendor/${vendor.id}`} className="card vendor-card">
       <div className="thumb" aria-hidden="true">{vendor.name.charAt(0)}</div>
       <div>
         <h3>{vendor.name}</h3>

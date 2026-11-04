@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 
-// Loads public/api/vendors.json. retry() fetches it again after an error.
+// Loads public/api/vendors.json. reload() fetches it again after an error.
 function useVendors() {
   const [vendors, setVendors] = useState(null) // null until the fetch finishes
   const [error, setError] = useState(null)
@@ -23,13 +23,13 @@ function useVendors() {
     return () => controller.abort()
   }, [reloadKey])
 
-  function retry() {
+  function reload() {
     setError(null)
     setVendors(null)
     setReloadKey((k) => k + 1)
   }
 
-  return { vendors, error, loading: !vendors && !error, retry }
+  return { vendors, loading: !vendors && !error, error, reload }
 }
 
 export default useVendors
