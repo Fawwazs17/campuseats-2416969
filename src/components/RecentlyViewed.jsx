@@ -1,4 +1,7 @@
+import { Link } from 'react-router'
+
 // Personal feature (matric digit 9): the last 5 menu items the user looked at, newest first.
+// Each item links back to its vendor's page.
 function RecentlyViewed({ items, onClear }) {
   if (items.length === 0) {
     return null
@@ -14,8 +17,10 @@ function RecentlyViewed({ items, onClear }) {
       </div>
       <ul className="recent-list">
         {items.map((item) => (
-          <li key={item.id} className="recent-chip">
-            {item.name} <span className="muted">RM {item.price.toFixed(2)}</span>
+          <li key={item.id}>
+            <Link to={`/vendor/${item.vendorId}`} className="recent-chip">
+              {item.name} <span className="muted">RM {item.price.toFixed(2)}</span>
+            </Link>
           </li>
         ))}
       </ul>

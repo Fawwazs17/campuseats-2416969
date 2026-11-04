@@ -11,8 +11,9 @@ function VendorPage() {
   const [recentlyViewed, setRecentlyViewed] = useLocalStorage('campuseats-recent', [])
 
   function handleView(item) {
-    // newest first, no duplicates, max 5
-    setRecentlyViewed((prev) => [item, ...prev.filter((v) => v.id !== item.id)].slice(0, 5))
+    // newest first, no duplicates, max 5; keep the vendor id so the link can go back to this page
+    const viewed = { ...item, vendorId: id }
+    setRecentlyViewed((prev) => [viewed, ...prev.filter((v) => v.id !== item.id)].slice(0, 5))
   }
 
   if (loading) return <Loading text="Loading menu…" />
