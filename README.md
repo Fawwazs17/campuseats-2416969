@@ -1,3 +1,7 @@
+# CampusEats (2416969)
+
+Firebase project ID: campuseats-2416969
+
 # React + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
