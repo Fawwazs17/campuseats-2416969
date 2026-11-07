@@ -9,7 +9,11 @@
       { "id": "2416969-ayam-gunting-original", "name": "Ayam Gunting Original", "description": "Crispy fried chicken cut into bite-size pieces, with chilli sauce", "price": 8, "category": "Chicken", "available": true },
       { "id": "2416969-nasi-ayam-gunting", "name": "Nasi Ayam Gunting", "description": "White rice with ayam gunting, cucumber and sambal", "price": 9.5, "category": "Rice", "available": true },
       { "id": "2416969-ayam-cheese", "name": "Ayam Cheese", "description": "Ayam gunting topped with melted cheese sauce", "price": 10, "category": "Chicken", "available": true },
-      { "id": "2416969-sosej-gunting", "name": "Sosej Gunting", "description": "Fried sausage cut into bite-size pieces, with chilli sauce", "price": 5, "category": "Sides", "available": false }
+      { "id": "2416969-sosej-gunting", "name": "Sosej Gunting", "description": "Fried sausage cut into bite-size pieces, with chilli sauce", "price": 5, "category": "Sides", "available": false },
+      { "id": "2416969-ayam-gepuk-gajus", "name": "Ayam Gepuk Gajus", "description": "Spiced fried chicken smashed with sambal gajus, a creamy cashew chilli sambal", "price": 16, "category": "Chicken", "available": true },
+      { "id": "2416969-ayam-geprek", "name": "Ayam Geprek", "description": "Crispy battered chicken smashed into fresh, fiery chilli sambal", "price": 15, "category": "Chicken", "available": true },
+      { "id": "2416969-nasi-ayam-pop", "name": "Nasi Ayam Pop", "description": "Padang-style ayam pop, boiled in spices then lightly fried so it stays pale and tender, with rice and sambal", "price": 17, "category": "Rice", "available": true },
+      { "id": "2416969-pizza-gepuk", "name": "Pizza Gepuk", "description": "Pizza topped with smashed ayam gepuk, sambal and melted cheese", "price": 20, "category": "Pizza", "available": true }
     ]
   },
   {
